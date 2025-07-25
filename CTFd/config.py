@@ -6,6 +6,9 @@ from typing import Union
 from sqlalchemy.engine.url import URL
 
 
+print("== DEBUG CONFIG ==")
+print("SECRET_KEY from env:", os.environ.get("SECRET_KEY"))
+
 class EnvInterpolation(configparser.BasicInterpolation):
     """Interpolation which expands environment variables in values."""
 
