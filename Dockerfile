@@ -1,6 +1,7 @@
 FROM python:3.11-slim-bookworm AS build
 
 WORKDIR /opt/CTFd
+COPY config.ini /opt/CTFd/config.ini
 
 # hadolint ignore=DL3008
 RUN apt-get update \
@@ -27,7 +28,7 @@ RUN pip install --no-cache-dir -r requirements.txt \
 
 FROM python:3.11-slim-bookworm AS release
 WORKDIR /opt/CTFd
-
+COPY config.ini /opt/CTFd/config.ini
 # hadolint ignore=DL3008
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
